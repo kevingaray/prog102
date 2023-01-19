@@ -3,13 +3,14 @@ import string
 
 app = input("Enter app name: ")
 length = int(input("Enter length of password: "))
+punctuation = input("Do you want to consider punctuation characters (y/n): ")
+punctuation_bool = True if punctuation in ['y','Y'] else False
 
-chars = string.ascii_letters + string.digits # + string.punctuation
 
-def generate_password(length):
-    password = ''
-    for _ in range(length):
-        password += random.choice(chars)
+def generate_password(length=8,punctuation_bool=False):
+    chars = string.ascii_letters + string.digits
+    if punctuation_bool: chars += string.punctuation
+    password = ''.join(random.choices(population=chars,k=length))
     return password
 
-print(generate_password(length))
+print(f"Your password for {app} is: {generate_password(length,punctuation_bool)}")
