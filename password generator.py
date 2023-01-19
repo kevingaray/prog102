@@ -14,3 +14,12 @@ def generate_password(length=8,punctuation_bool=False):
     return password
 
 print(f"Your password for {app} is: {generate_password(length,punctuation_bool)}")
+
+## crear otro branch , donde se guarde en un archivo txt o csv las contraseñas, 
+## buscar como encryptar archivo
+## devolver contraseñas
+## guardar contraseñas
+## martes 24/01, expo en ingles
+## se puede hacer una libreria que encripte desencripte
+## error handler
+## password tamaño minimo 8 digitos
