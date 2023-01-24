@@ -4,7 +4,7 @@ import string
 
 # Procces : decryp text -> dictionary -> append password -> encryp dictionary
 
-def bytes_to_dic(decrypted):
+def bytes_to_dic(decrypted: bytes) -> dict:
     text = decrypted.decode('utf-8').split('\n')
     passwords = dict()
     for line in text:
@@ -12,25 +12,25 @@ def bytes_to_dic(decrypted):
         passwords[app]=password.strip()
     return passwords
 
-def dic_to_bytes(passwords):
+def dic_to_bytes(passwords: dict) -> bytes:
     text = ''
     for key,value in passwords.items():
         text += f"{key},{value}\n"
     return text.strip().encode('utf-8')
 
-def print_passwords(passwords):
+def print_passwords(passwords: dict):
     print("All passwords")
     for app,password in passwords.items():
         print(f"{app}: '{password}'")
 
-def generate_password(length=8):
+def generate_password(length=8) -> str:
     chars = string.ascii_letters + string.digits
     password = ''.join(random.choices(population=chars,k=length))
     return password
 
 # opening the key
 with open('password_generator/filekey.key', 'rb') as filekey:
-	key = filekey.read()
+	key = filekey.read()  # 44jd0HOyE7YbFGUeqL6I-HNoTrmcQSDUJ6mNZtgzCcw=
 
 # using the key
 fernet = Fernet(key)
@@ -67,4 +67,5 @@ elif  option==2:
         # opening the file in write mode and saving the encrypted data
         with open('password_generator/passwords_encrypted.txt', 'wb') as encrypted_file:
             encrypted_file.write(encrypted)
-
+else:
+    print('Invalid options')
