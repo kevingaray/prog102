@@ -1,9 +1,5 @@
-# .1.3.6.1.2.1.2.2.1.2
-# python review_file.py -i build0 
-# Have index = 2 .1.3.6.1.2.1.2.2.1.2 = STRING: build0
-# .1.3.6.1.2.1.2.2.1.3 = INTEGER: ethernetCsmacd(6)
-# .1.3.6.1.2.1.2.2.1.4 = INTEGER: 1500
-# .1.3.6.1.2.1.2.2.1.5 = Gauge32: 0
+# run 'python3 review_file.py -i "name"'
+# example 'python3 review_file.py -i build0'
 
 import optparse
 opts = optparse.OptionParser()
